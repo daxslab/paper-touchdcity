@@ -61,19 +61,28 @@ Para representar la información en TouchDCity se ha diseñado una estructura je
 
 ![Un lugar puede incluir a muchos lugares y estos pudieran brindar varios servicios, y tener asociados fotos, vías de contactos y opiniones](jerarquia.png)
 
-Con este modelo es posible representar como lugar a Cuba, que tendría como “hijos” a las diferentes provincias, cada una tendría como “hijos” a los municipios y estos a su vez ya tienen como “hijos” a los lugares “no geográficos”: los que tienen una categoría de servicio y por tanto pueden ofrecerlo.
+Con este modelo es posible representar como lugar a Cuba, que tendría como “hijos” a las diferentes provincias, cada una tendría como “hijos” a los municipios y estos a su vez ya tienen como “hijos” a los lugares “no geográficos”: los que tienen una categoría de servicio y por tanto pueden ofrecerlo. Para complementar la descripción de un lugar se le pueden agregar fotos y datos de contacto.
 
 Además de la plataforma de web, TouchDCity, ofrece acceso a su base de datos abierta mediante una API Rest, que permite que otros clientes puedan acceder a la información. El cliente oficial de TouchDCity es la aplicación Android del mismo nombre y que está orientada más a la geolocalización de los usuarios y los lugares que están cercanos a él.
 
 Otra funcionalidad implementada en TouchDCity está asociada a la posibilidad de dejar una recomendación (positiva o negativa) sobre cada lugar que aparece en el catálogo lo cual establece un ranking entre los mismos permitiendo a los usuarios escoger a donde ir. Dicha información, además de ser consultable en la plataforma se puede obtener mediante la API creada con este propósito permitiendo, por ejemplo, al sitio web oficial del lugar obtener las opiniones que sobre este se han dejado para mostrarlas así como mostrar un formulario para que nuevos usuarios puedan publicar nuevas. 
-Entre los servicios a construir se encuentra en proyecto:
 
-- La venta de disponibilidad habitacional para casas particulares
+Teniendo en cuenta que algunos lugares pueden realizar actividades, se desarrolló el módulo de eventos que permite publicar el calendario de actividades asociando a cada una el nombre, descripción, imagen, fecha y hora de inicio y fin, y un precio opcional. La información de estos calendarios se publica en formato ICAL de forma tal que cualquier dispositivo o aplicación que "entienda" este estándar de distribución de datos, podrá recibir facilmente la información. Por ejemplo, la aplicación Calendario de cualquier dispositivo Android o iOS.
+
+De la misma manera se complementa la información de los lugares con una sección de noticias, utilizando para esto fuentes RSS que se escanean para mostrar los titulares de las publicaciones recientemente echas en los sitios web de los lugares que lo tengan activado, y enlazar al texto completo en la fuente original. De esta forma, no es necesaria la gestión de las noticias de forma local en la aplicación.
+
+Otro beneficio de la organización jerárquica de los lugares, consiste en que cuando se está en un nivel superior, por ejemplo Cienfuegos, es posible acceder a toda la información de los hijos de forma agrupada, o sea un calendario de todos los eventos en Cienfuegos, las opiniones dadas sobre lugares de la ciudad, o las últimas noticias publicadas.
+
+Teniendo en cuenta la importancia de las redes sociales, todos los enlaces a los lugares que se encuentran en el catálogo y las opiniones que se publican sobre los mismos, se difunden automáticamente en las redes sociales Twitter y Facebook, incrementando el alcance de la información. 
+
+TouchDCity soporta varios modelos de negocio a partir de la cantidad de información que es capaz de gestionar. La forma básica de ingresos en la plataforma consiste en el cobro por la inscripción en la misma lo que daría ciertos beneficios al cliente para la gestión del lugar. Otros son los asociados a los servicios a construir una vez que se estabilicen las pasarelas de pago de las plataformas nacionales de comercio electrónico:
+
 - Entradas a galerías, teatros, museos
+- Venta de disponibilidad habitacional para casas particulares
 
 Las características de la arquitectura de TouchDCity permiten que pueda ser reutilizado como plataforma de información por otros actores, como pueden ser los gobiernos locales, instituciones, etc. para el desarrollo de proyectos relacionados con la informatización de la sociedad, el gobierno electrónico, turismo, rutas patrimoniales y otros. 
 
-Teniendo en cuenta la importancia de las redes sociales, todos los enlaces a los lugares que se encuentran en el catálogo y las opiniones que se publican sobre los mismos, se difunden automáticamente en las redes sociales Twitter y Facebook, incrementando el alcance de la información. 
+Entre los proyectos que se están contemplando con la Unión de Informáticos de Cuba y el gobierno de Cienfuegos está el colocar pantallas por la ciudad con información obtenida desde la plataforma. 
 
 Materiales y métodos
 --------------------
